@@ -61,6 +61,28 @@ public class SearchInsertPosition {
         return result;
     }
 
+    /**
+     * 采用二分查找
+     * 
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int searchInsert2(int[] nums, int target) {
+
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] > target)
+                high = mid - 1;
+            else
+                low = mid + 1;
+        }
+        return low;
+    }
+
 
     public static void main(String[] args) {
         SearchInsertPosition searchInsertPosition = new SearchInsertPosition();

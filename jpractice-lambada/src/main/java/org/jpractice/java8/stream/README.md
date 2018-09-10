@@ -147,3 +147,35 @@ CompletableFuture和并行流的异同：它们内部采用的是同样的通用
 thenCompose方法允许对两个异步操作进行流水线，第一个操作完成时，将其结果作为参数传递给第二个操作
 thenCombine 将两个完全不相干CompletableFuture对象的结果整合起来，而且你也不希望等到第一个任务完全结 束才开始第二项任务。
 thenAccept 只要有结果，就可以立即执行，而不是等所有结果都返回
+
+
+LocalDate  
+LocalDate.of  
+LocalDate.now()  
+LocalTime  
+LocalTime.of
+
+LocalDateTime 同时表示日期时间，但是不带有时区信息
+通过各自的atTime或者atDate方法，向LocalDate传递一个时间对象，或向LocalTime传递一个日期对象的方式，可以创建一个LocalDateTime对象  
+你也可以使用toLocalDate或者toLocalTime方法，从LocalDateTime中提取LocalDate或LocalTime组件
+
+机器的日期和时间格式  
+从计算机的角度来看，建模时间最自然的格式是表示一个持续时间段上某个点的单一大整型数。  
+java.time.Instant类对时间建模的方式，基本上它是以Unix元年时间（传统的设定为UTC时区1970年1月1日午夜时间）开始经历的描述进行计算  
+你可以通过向静态工厂方法ofEpochSecond传递一个代表秒数的值创建一个该类的实例。
+Instant设计的初衷是为了便于机器使用，它包含的是由秒以及纳秒所构成的数字。所以，它无法处理那些我们非常容易理解的时间单位
+
+Duration
+
+Period
+
+withAttribute创建时间的修改版本
+
+使用TemporalAdjuster进行更加复杂的操作以及自定义
+
+
+
+
+
+
+

@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Stream;
 
 /**
@@ -26,6 +27,26 @@ public class Demo {
             new Dish("prawns", false, 300, Dish.Type.FISH), new Dish("salmon", false, 450, Dish.Type.FISH));
 
     public static void main(String[] args) {
+
+        // for-each
+        // List<String> names = new ArrayList<>();
+        // for (Dish dish : menu) {
+        // names.add(dish.getName());
+        // }
+        //
+        // Iterator<Dish> iterator = menu.iterator();
+        // while (iterator.hasNext()) {
+        // Dish d = iterator.next();
+        // names.add(d.getName());
+        // }
+
+        List<String> names = menu.stream().map(Dish::getName).collect(toList());
+
+        // int calories = menu.stream().map(Dish::getCalories).reduce(0, Integer::sum);
+
+        int calories = menu.stream().mapToInt(Dish::getCalories).sum();
+
+        OptionalInt maxCalories = menu.stream().mapToInt(Dish::getCalories).max();
 
         System.out.println(new Date().getTime());
         Demo demo = new Demo();
@@ -119,6 +140,7 @@ public class Demo {
 
     /**
      * 给定两个数字列表，如何返回所有的数对
+     * 例如，给定列表[1, 2, 3]和列表[3, 4]，应 该返回[(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]
      */
     public void numberPair() {
         List<Integer> numbers1 = Arrays.asList(1, 2, 3);
@@ -164,8 +186,20 @@ public class Demo {
         System.out.println(menu.stream().noneMatch(d -> d.getCalories() >= 1000));
     }
 
+    /**
+     * 找到一道素食菜肴
+     */
     public void findAny() {
         menu.stream().filter(Dish::isVagetarian).findAny().ifPresent(d -> System.out.println(d.getName()));
+    }
+
+    /**
+     * 给定一个数字列表，找出第一个平方能被3整除的数
+     */
+    public void findFirst() {
+        List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+        Optional<Integer> firstSquareDivisibleByThree = someNumbers.stream().map(x -> x * x).filter(x -> x % 3 == 0)
+                .findFirst(); // 9
     }
 
     /**
