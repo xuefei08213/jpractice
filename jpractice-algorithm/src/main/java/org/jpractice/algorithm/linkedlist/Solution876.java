@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jpractice.algorithm.leetcode876;
+package org.jpractice.algorithm.linkedlist;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
  * @Description: TODO
  * @version V1.0
  */
-public class Solution {
+public class Solution876 {
 
     public ListNode middleNode(ListNode head) {
 

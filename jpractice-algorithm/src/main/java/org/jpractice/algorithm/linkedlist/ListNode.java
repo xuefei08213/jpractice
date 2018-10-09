@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jpractice.algorithm.leetcode876;
+package org.jpractice.algorithm.linkedlist;
 
 /**
  * @author: 作者： xuefei
