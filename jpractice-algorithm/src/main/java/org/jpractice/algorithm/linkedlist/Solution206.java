@@ -3,15 +3,16 @@ package org.jpractice.algorithm.linkedlist;
 public class Solution206 {
     public ListNode reverseList(ListNode head) {
 
-        ListNode newHead = null;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = newHead;
-            newHead = head;
-            head = next;
+        ListNode p1 = head;
+        ListNode p2 = head.next;
+        p1.next = null;
+        while (p2 != null) {
+            ListNode tmpNode = p2.next;
+            p2.next = p1;
+            p1 = p2;
+            p2 = tmpNode;
         }
-
-        return newHead;
+        return p1;
     }
 
     public static void main(String[] args) {
