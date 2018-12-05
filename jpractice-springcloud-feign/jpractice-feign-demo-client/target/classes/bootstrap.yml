@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: feignDemoClient
+  cache:
+    caffeine:
+      spec: maximumSize=500, expireAfterAccess=10s
+server:
+  port: 8083
+feign:
+  hystrix:
+    enabled: true
