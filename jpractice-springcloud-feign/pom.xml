@@ -1,11 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.jpractice</groupId>
-  <artifactId>jpractice-springcloud-feign</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <dependencyManagement>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jpractice</groupId>
+    <artifactId>jpractice-springcloud-feign</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -29,10 +31,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-  <modules>
-      <module>jpractice-feign-demo-client</module>
-      <module>jpractice-feign-demo-core</module>
-      <module>jpractie-feign-demo-entity</module>
-      <module>jpractice-feign-demo-server</module>
-  </modules>
+    <modules>
+        <module>jpractice-feign-demo-client</module>
+        <module>jpractice-feign-demo-core</module>
+        <module>jpractie-feign-demo-entity</module>
+        <module>jpractice-feign-demo-server</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

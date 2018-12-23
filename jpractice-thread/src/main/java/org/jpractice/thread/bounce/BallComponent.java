@@ -40,7 +40,7 @@ public class BallComponent extends JPanel {
 		super.paintComponent(graphics);
 		Graphics2D graphics2d = (Graphics2D) graphics;
 		for (Ball ball : balls) {
-            // graphics2d.fill();
+            graphics2d.fill(ball.getShape());
 		}
 
 	}

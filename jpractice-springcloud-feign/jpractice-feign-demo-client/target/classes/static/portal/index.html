@@ -3,8 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../entrypoints/test.js.js"></script>
-
+<script type="text/javascript" src="../lib/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+$(function() {
+    console.log( "ready!" );
+    $.ajax({
+        url: "/postTest",
+        data: JSON.stringify({
+          pid: "aaa"
+        }),
+        method:"post",
+        contentType:"application/json",
+        success: function( result ) {
+          $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+        }
+      });
+});
+</script>
 </head>
 <body>
 

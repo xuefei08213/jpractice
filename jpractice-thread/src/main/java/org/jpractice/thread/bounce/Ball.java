@@ -3,6 +3,7 @@
  */
 package org.jpractice.thread.bounce;
 
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 
 /**
@@ -39,5 +40,19 @@ public class Ball {
 			dx = -dx;
 		}
 
+        if (y < bounds.getMinY()) {
+            y = bounds.getMinY();
+            dy = -dy;
+        }
+
+        if (y + YSIZE >= bounds.getMaxY()) {
+            y = bounds.getMaxY() - YSIZE;
+            dy = -dy;
+        }
+
 	}
+
+    public Ellipse2D getShape() {
+        return new Ellipse2D.Double(x, y, XSIZE, YSIZE);
+    }
 }

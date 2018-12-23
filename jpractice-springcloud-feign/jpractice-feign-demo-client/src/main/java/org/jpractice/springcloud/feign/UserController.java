@@ -12,6 +12,7 @@ import org.jpractice.springcloud.feign.caffeine.MusicService;
 import org.jpractice.springcloud.feign.caffeine.MusicServiceIml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -68,5 +69,10 @@ public class UserController {
     public void claerCaffeine() {
         logger.info("claer Caffeine");
         musicService.clearCache();
+    }
+
+    @RequestMapping("postTest")
+    public void postTest(@RequestBody String pid) {
+        logger.info(pid);
     }
 }
