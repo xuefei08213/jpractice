@@ -1,0 +1,64 @@
+#spring基础配置
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration    
+  cloud:
+    inetutils:
+      preferredNetworks: 
+        - 10.0
+  devtools:
+    restart:
+      enabled: false
+
+# falcon平台相关属性配置
+falcon:
+  oaf:
+    datasource:
+      oracle:
+        oracle1:
+          - name: oracle
+            driverClassName: oracle.jdbc.driver.OracleDriver
+            #管控库数据库配置
+            url: jdbc:oracle:thin:@localhost:1521:xe
+            username: mcsas
+            password: mcsas_123$
+            filters: config
+            initialSize: 1
+            testWhileIdle: false
+      mongo:
+        mongo1:
+          uri: mongodb://mcsas:Nariadmin_123@localhost:27017/mcsas
+      es:
+        es1:
+          uri: http://localhost:9200 #elasticsearch对应的数据源
+          username: 
+          password:
+#kafka属性设置以_分割,如bootstrap_servers代表bootstrap.servers
+  eventBus:
+    default:
+      # kafka集群模式时，bootstrap.servers属性以[,]进行分割
+      bootstrap.servers: kafka1:9092,kafka2:9093,kafka3:9094
+      acks: all
+      retries: 300
+      batch.size: 16384
+      buffer.memory: 33554432
+      key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value.serializer: org.apache.kafka.common.serialization.StringSerializer
+      value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      reconnect.backoff: 20000
+      linger: 50
+
+seal:
+  uds:
+    url: http://172.28.5.33:8080/pi6000-uds-web  
+#zookeeper属性配置
+zookeeper:
+  # zk集群模式时，servers属性以[,]进行分割
+  servers: zookeeper1:2181
+eureka:
+  client:
+    enable: false

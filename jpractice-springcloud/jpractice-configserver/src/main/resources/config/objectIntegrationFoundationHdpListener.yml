@@ -1,0 +1,32 @@
+falcon:
+  hdpinit:
+    git:
+      #url: http://git.app.nariapp.com:10080
+      url: http://192.168.0.102
+      namespace: wangmg
+      projectName: hdpinittable
+      userName: root
+      password: 12345678
+      tempdir: /tmp/hdp
+  hdpIncSync:
+    syncDataExecuteTime: "11:29"
+hdp:
+  blockFetcher: 
+    groupName: nari
+    systemName: zwgk
+    linkName: local
+    serviceName: capture
+  redis: 
+    #ip: 10.234.252.29
+    ip: 192.168.0.139
+    port: 6379
+    password: Mcsas_123%
+    blockId: 19342389
+  # 该kafka作为forward 使用
+  kafka:
+    address: kafka1:9092
+  zkAddress: zookeeper1:2181
+  #运行模式:1.production(默认);2.develop(该模式下hdplsnr不会启动)
+  mode: develop
+  server:
+    port: 18080

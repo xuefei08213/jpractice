@@ -6,6 +6,8 @@ package org.jpractice.feign.demo.server;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.jpractice.feign.demo.entity.User;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @RequestMapping("/user/{id}")
-    public User getUserById(@PathVariable(name = "id") String userId) {
-
+    public User getUserById(@PathVariable(name = "id") String userId, HttpServletRequest request) {
+        System.out.println(request.getHeader("Authority"));
         System.out.println(userId);
         User user = new User();
         user.setId("1");

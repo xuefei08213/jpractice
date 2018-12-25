@@ -1,0 +1,32 @@
+server:
+  port: 8008
+#spring基础配置
+spring:
+  application:
+    name: lurker
+  cloud: 
+    config: 
+      uri: http://config-server1:8888
+      failFast: false
+lurker:
+  mode: outside
+  refreshTime: 300
+  requestTableName: LURKER_REQUEST
+  requestTableName2: LURKER_REQUEST_BLOB
+  responseTableName: LURKER_RESPONSE
+  responseTableName2: LURKER_RESPONSE_BLOB
+  requestHistroyTableName: LURKER_REQUEST_HISTORY
+  requestHistroyTableName2: LURKER_REQUEST_BLOB_HISTORY
+  multipartType: image/gif;charset=UTF-8,image/jpeg;charset=UTF-8,image/png;charset=UTF-8,application/pdf;charset=UTF-8,application/msword;charset=UTF-8,application/octet-stream;charset=UTF-8,image/gif,image/jpeg,image/png,application/pdf,application/msword,application/octet-stream
+  allType: text/html;charset=UTF-8,text/plain;charset=UTF-8,text/xml;charset=UTF-8,image/gif;charset=UTF-8,image/jpeg;charset=UTF-8,image/png;charset=UTF-8,application/xhtml+xml;charset=UTF-8,application/xhtml+xml;charset=UTF-8,application/atom+xml;charset=UTF-8,application/json;charset=UTF-8,application/pdf;charset=UTF-8, application/msword;charset=UTF-8,application/octet-stream;charset=UTF-8,application/x-www-form-urlencoded;charset=UTF-8,text/html,text/plain,text/xml,image/gif,image/jpeg,image/png,application/xhtml+xml,application/xhtml+xml,application/atom+xml,application/json,application/pdf, application/msword,application/octet-stream,application/x-www-form-urlencoded
+  datasource:
+    oracle:
+      #type: org.apache.commons.dbcp.BasicDataSource
+      driver-class-name: sgcc.nds.jdbc.driver.NdsDriver
+      url: jdbc:nds://172.28.15.234:18600,172.28.15.226:18600/v_uap_1?appname=app_uap_1
+      username: UDSOUT
+      password: uds
+      initialSize: 5
+      maxActive: 20
+      validationQuery: select 1 from dual
+      testOnBorrow: true

@@ -1,0 +1,46 @@
+server:
+  port: 8090
+  session:
+    timeout: 72000
+  tomcat:
+    acceptCount: 500
+    maxThreads: 400
+    maxConnections: 1000
+    
+logging.level.com.netflix: DEBUG
+
+hystrix.command.default:
+  execution.isolation.thread.timeoutInMilliseconds: 70000
+  circuitBreaker:
+    requestVolumeThreshold: 100
+
+ribbon:
+  ReadTimeout: 70000
+  ConnectTimeout: 70000
+  eureka:
+    enabled: false
+
+zuul:
+  sensitive-headers: Cookies
+  add-host-header: true
+  forceOriginalQueryStringencoding: true
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+    maxTotalConnections: 1000
+    maxPerRouteConnections: 100
+  routes:
+    lurker:
+      path: /lurker/health
+      serviceId: lurkerService
+      stripPrefix: false
+
+    seal:
+      path: /10.144.23.52:9000/**
+      serviceId: lurkerService
+      stripPrefix: false
+    
+
+lurkerService:
+  ribbon:
+    listOfServers: http://localhost:8008
