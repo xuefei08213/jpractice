@@ -15,13 +15,13 @@ public class Greeter extends AbstractActor {
   }
 
   //#greeter-messages
-  static public class WhoToGreet {
-    public final String who;
+    static public class WhoToGreet {
+        public final String who;
 
-    public WhoToGreet(String who) {
-        this.who = who;
+        public WhoToGreet(String who) {
+            this.who = who;
+        }
     }
-  }
 
   static public class Greet {
     public Greet() {

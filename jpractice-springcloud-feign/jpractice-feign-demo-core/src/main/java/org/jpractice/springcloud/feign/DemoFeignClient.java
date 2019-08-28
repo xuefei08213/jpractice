@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description: TODO
  * @version V1.0
  */
-@FeignClient(name = "demoFeignClient", url = "http://localhost:8080", fallback = HystrixClientFallback.class)
+@FeignClient(name = "demoFeignClient", url = "http://localhost:8081", fallback = HystrixClientFallback.class)
 public interface DemoFeignClient {
 
     @RequestMapping("/user/{id}")

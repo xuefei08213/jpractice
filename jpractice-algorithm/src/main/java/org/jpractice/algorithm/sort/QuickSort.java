@@ -36,9 +36,6 @@ public class QuickSort {
         }
 
         exch(a, lo, j);
-
-        // print(a);
-
         return j;
     }
 
@@ -62,7 +59,6 @@ public class QuickSort {
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
         sort(a, j + 1, hi);
-
     }
 
     private static boolean less(Comparable v, Comparable w) {
@@ -79,7 +75,5 @@ public class QuickSort {
         String[] a = new String[] { "Q", "U", "I", "C", "K", "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E" };
         QuickSort.sort(a);
         print(a);
-        
-
     }
 }

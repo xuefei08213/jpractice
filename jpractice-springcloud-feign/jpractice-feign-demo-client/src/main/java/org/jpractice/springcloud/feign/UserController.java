@@ -39,11 +39,17 @@ public class UserController {
         return demoFeignClient.getUserById("1");
     }
 
+    @RequestMapping("exceptiontest")
+    public String test() {
+        throw new RuntimeException("11");
+
+    }
+
     @SuppressWarnings("rawtypes")
     @RequestMapping("testAll")
     public List<User> getAllUser(){
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<List> responseEntity = restTemplate.getForEntity("http://localhost:8080/user/all",
+        ResponseEntity<List> responseEntity = restTemplate.getForEntity("http://localhost:8081/user/all",
                 List.class);
         return responseEntity.getBody();
 

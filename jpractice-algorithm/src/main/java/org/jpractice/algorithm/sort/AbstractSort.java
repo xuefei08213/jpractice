@@ -50,6 +50,11 @@ public class AbstractSort {
         return true;
     }
 
+    /**
+     * 用来展示排序的结果
+     * 
+     * @param a
+     */
     public static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
