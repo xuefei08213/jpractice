@@ -12,21 +12,39 @@ package org.jpractice.algorithm.sort;
 public class InsertionSort extends AbstractSort{
     
     public static void sort(Comparable[] a) {
-        int length = a.length;
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = i + 1; j >= 1; j--) {
-                if (less(a[j], a[j - 1])) {
-                    exch(a, j, j - 1);
-                }
+
+        for (int i = 0; i < a.length - 1; i++) {
+            int j = i + 1;
+            while (j > 0 && a[j].compareTo(a[j - 1]) < 0) {
+                Comparable tmp = a[j];
+                a[j] = a[j - 1];
+                a[j - 1] = tmp;
+                j--;
             }
         }
-
-        show(a);
     }
     
+
+
+    // public static void sort(Comparable[] a) {
+    // int length = a.length;
+    // for (int i = 0; i < length - 1; i++) {
+    // for (int j = i + 1; j >= 1; j--) {
+    // if (less(a[j], a[j - 1])) {
+    // exch(a, j, j - 1);
+    // }
+    // }
+    // }
+    //
+    // show(a);
+    // }
+
     public static void main(String[] args) {
         Integer[] aa = { 11, 9, 8, 7, 3, 9, 2 };
         sort(aa);
+        for (int i = 0; i < aa.length; i++) {
+            System.out.println(aa[i]);
+        }
     }
 
 }

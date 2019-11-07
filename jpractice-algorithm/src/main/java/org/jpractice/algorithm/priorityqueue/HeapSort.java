@@ -12,30 +12,40 @@ package org.jpractice.algorithm.priorityqueue;
 public class HeapSort {
 
     public static void main(String[] args) {
-        String[] a = { "1", "4", "2", "66", "22", "45" };
-        sort(a);
+        HeapSort heapSort = new HeapSort();
+
+        Integer[] a = { 1, 4, 2, 66, 22, 45 };
+        heapSort.sort(a);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
     }
 
-    public static void sort(Comparable[] a) {
+    public void sort(Comparable[] a) {
+
         int n = a.length;
-        for (int k = n / 2; k >= 1; k--)
+        // 将给定数组转换为堆
+        for (int k = n / 2; k >= 1; k--) {
             sink(a, k, n);
+        }
+
+        // 将堆中最大的元素删除，然后放入堆缩小后数组空出来的位置
         while (n > 1) {
             exch(a, 1, n);
             sink(a, 1, --n);
         }
     }
 
-    private static void sink(Comparable[] pq, int k, int n) {
-        while (2 * k <= n) {
-            int j = 2 * k;
-            if (j < n && less(pq, j, j + 1))
+    private void sink(Comparable[] pq, int k, int n) {
+
+        while (2 * k < n) {
+            int j = 2*k;
+            if (less(pq, j, j + 1)) {
                 j++;
-            if (!less(pq, k, j))
+            }
+            if (!less(pq, k, j)) {
                 break;
+            }
             exch(pq, k, j);
             k = j;
         }

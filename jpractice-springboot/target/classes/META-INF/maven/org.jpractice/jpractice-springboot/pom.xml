@@ -55,6 +55,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-loader</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,20 +67,16 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
-        </dependency> -->
+        <!-- <dependency> <groupId>org.springframework.session</groupId> 
+            <artifactId>spring-session-data-redis</artifactId> </dependency> -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
-        <!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency> -->
+        <!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
+            </dependency> -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -101,8 +102,17 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> -->
+                <groupId>org.jpractice</groupId>
+                <artifactId>jpractice-springboot-maven-plugin</artifactId>
+                <!-- <version>0.0.1-SNAPSHOT</version> -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -9,6 +9,14 @@ zuul:
       path: /exceptiontest/**
       url: http://192.168.0.156:8083
       stripPrefix: false
+    faultAnalysis:
+      path: /transformfaultweb/**
+      url: http://localhost:8083
+      stripPrefix: true
+    ak:
+      path: /ak/**
+      url: http://localhost:8083
+      stripPrefix: false
 ribbon:
   eureka:
     enabled: false

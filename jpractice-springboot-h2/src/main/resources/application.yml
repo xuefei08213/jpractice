@@ -1,3 +1,9 @@
 server.port: 8083
 spring.h2.console.enabled: true  
-spring.datasource.url: jdbc:h2:mem:testdb;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+#spring.datasource.url: jdbc:h2:mem:testdb;MODE=Oracle;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE 
+
+spring.datasource.type: com.alibaba.druid.pool.DruidDataSource
+spring.datasource.driver-class-name: oracle.jdbc.driver.OracleDriver
+spring.datasource.url: jdbc:oracle:thin:@192.168.0.101:1521:EE
+spring.datasource.username: cim
+spring.datasource.password: cim_123$

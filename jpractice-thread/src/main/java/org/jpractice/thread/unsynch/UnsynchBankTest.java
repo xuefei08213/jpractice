@@ -3,6 +3,8 @@
  */
 package org.jpractice.thread.unsynch;
 
+import java.util.logging.Logger;
+
 /**
  * @author: 作者： xuefei
  * @date: 创建时间：2018-11-18 10:15:17
@@ -10,6 +12,8 @@ package org.jpractice.thread.unsynch;
  * @version V1.0
  */
 public class UnsynchBankTest {
+
+    private static Logger logger = Logger.getLogger("");
 
     public static final int NACCOUNTS = 10;
 

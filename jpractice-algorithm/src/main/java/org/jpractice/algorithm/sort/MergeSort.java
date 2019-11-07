@@ -33,8 +33,6 @@ public class MergeSort extends AbstractSort {
         System.out.println(low + "-" + mid + "-" + high);
         show(arr);
 
-        Comparable[] aux = new Comparable[arr.length];
-
         // Find sizes of two subarrays to be merged
         int n1 = mid - low + 1;
         int n2 = high - mid;
