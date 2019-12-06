@@ -5,5 +5,15 @@
     <groupId>org.jpractice</groupId>
     <artifactId>jpractice-algorithm</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    
+    <dependencies>
+        <dependency>
+            <groupId>algs4</groupId>
+            <artifactId>algs4</artifactId>
+            <version>4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/algs4.jar</systemPath>
+        </dependency>
+    </dependencies>
 
 </project>
