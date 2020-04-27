@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jpractice.algorithm.linkedlist;
+package org.jpractice.algorithm;
 
 /**
  * @author: 作者： xuefei

@@ -1,4 +1,4 @@
-package org.jpractice.algorithm.linkedlist;
+package org.jpractice.algorithm;
 
 public class Solution206 {
     public ListNode reverseList(ListNode head) {

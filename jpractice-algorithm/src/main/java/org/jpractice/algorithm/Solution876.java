@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.jpractice.algorithm.linkedlist;
+package org.jpractice.algorithm;
 
 import java.util.HashMap;
 import java.util.Map;
